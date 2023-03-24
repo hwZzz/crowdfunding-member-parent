@@ -1,0 +1,35 @@
+server:
+  port: 80
+spring:
+  application:
+    name: crowd-zuul
+  redis:
+    host: 127.0.0.1
+    password: 123456
+  session:
+    store-type: redis
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+zuul:
+  ignored-services: "*"
+  sensitive-headers: "*"
+  routes:
+    crowd-portal:
+      service-id: crowd-auth
+      path: /**
+    crowd-project:
+      service-id: crowd-project
+      path: /project/**
+
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

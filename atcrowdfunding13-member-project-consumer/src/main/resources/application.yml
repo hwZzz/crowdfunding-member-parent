@@ -1,0 +1,29 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: crowd-project
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: 127.0.0.1
+    password: 123456
+  session:
+    store-type: redis
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+
+aliyun:
+  oss:
+    access-key-id: LTAI5tRk5HQzehuJPYSWMX4y
+    access-key-secret: EGxjVpR0aGCAyNb7rybOQOzZuaajtO
+    bucket-domain: http://crowd-funding-test.oss-cn-chengdu.aliyuncs.com
+    bucket-name: crowd-funding-test
+    end-point: http://oss-cn-chengdu.aliyuncs.com
